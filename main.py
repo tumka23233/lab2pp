@@ -67,3 +67,14 @@ class TestCardValidator(unittest.TestCase):
         text = "Неверные номера: 1234-5678-1234-5678, а также слишком короткий 123"
         result = self.validator.validate_text(text)
         self.assertEqual(result, [])
+
+def main():
+    validator = CardValidator()
+    print("=== Анализатор номеров банковских карт ===")
+    user_input = input("Введите текст для поиска номеров карт: ")
+    found = validator.validate_text(user_input)
+    print(f"Найденные корректные карты: {found}")
+
+
+if __name__ == "__main__":
+    unittest.main()
